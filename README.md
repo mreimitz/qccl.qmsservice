@@ -33,3 +33,7 @@ All functions are located in the namespace "qccl.qmsapi" and can be called direc
 |**GetTriggersByTask**|get all triggers by taskname.|
 |**SendMail**|send a mail to a specific receipient.|
 
+### Setup
+Setup the compiled WebService as a new Web Application on your IIS.
+
+
