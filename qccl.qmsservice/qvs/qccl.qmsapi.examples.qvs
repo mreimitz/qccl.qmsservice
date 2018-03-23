@@ -1,0 +1,401 @@
+﻿SET ThousandSep=',';
+SET DecimalSep='.';
+SET MoneyThousandSep=',';
+SET MoneyDecimalSep='.';
+SET MoneyFormat='$#,##0.00;($#,##0.00)';
+SET TimeFormat='h:mm:ss TT';
+SET DateFormat='M/D/YYYY';
+SET TimestampFormat='M/D/YYYY h:mm:ss[.fff] TT';
+SET MonthNames='Jan;Feb;Mar;Apr;May;Jun;Jul;Aug;Sep;Oct;Nov;Dec';
+SET DayNames='Mon;Tue;Wed;Thu;Fri;Sat;Sun';
+
+
+// #CMT# qccl.qmsapi.examples
+// #CMT# this document is designed to demonstrate how to use the qccl.qvsapi.
+// ---------------------------------------------------------------------------------------------
+// #CMT# Please replace the placeholder values ("marketd with @[name]") with values of your environment.
+// #CMT# This document is setup to execute all available commands at once. Please comment all commands
+// #CMT# you do not want to execute.
+
+// #CMT# You need to replace following placeholders to run this examples:
+// #CMT# Please use the "search" function to find all places and replace the values.
+// ---------------------------------------------------------------------------------------------
+
+	// #CMT# Placeholder 1 : @[servername]
+	LET v.ph.servername = 'localhost';
+	// #CMT# Placeholder 2 : @[port]
+	LET v.ph.port = '65030';
+	
+	// #CMT# Placeholder 4 : @[qdsname]
+	LET v.ph.qdsname = 'QDS@Server';
+	// #CMT# Placeholder 5 : @[taskname]
+	LET v.ph.taskname = 'Taskname';
+	// #CMT# Placeholder 6 : @[taskid]
+	LET v.ph.taskid = '980ec130-3249-4b9c-9260-e39f670102d6';
+	// #CMT# Placeholder 7 : @[category]
+	LET v.ph.category = 'Apps';
+	
+	// #CMT# Placeholder 8 : @[receipient]
+	LET v.ph.mailreceipient = test@company.com';
+	// #CMT# Placeholder 9 : @[subject]
+	LET v.ph.mailsubject = 'Test Info Mail';
+	// #CMT# Placeholder 10 : @[body]
+	LET v.ph.mailbody = '<body><p>Dear user,</p> <p>you get this message out of testing reasons. Please do not answer to this mail.</p> <p>Best Regards</p><p> CrashTestDummy.<p></body>';
+	// #CMT# Placeholder 11 : @[ishtml]
+	LET v.ph.mailishtml = 'True';
+
+// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// Setup the api
+// ---------------------------------------------------------------------------------------------
+// #CMT# global variables:
+// ---------------------------------------------------------------------------------------------
+LET vService = '$(v.ph.servername):$(v.ph.port)/qmsservice.asmx';
+LET vServiceURL = 'http://$(vService)/qvs/qccl.qmsapi.qvs';
+// ---------------------------------------------------------------------------------------------
+// #CMT# Include the online qvs file to access the latest qmsapi
+$(Must_Include=$(vServiceURL));
+
+
+
+// Use api functions:
+// ---------------------------------------------------------------------------------------------
+
+// #CMT# Command to get all available server instances for this cluster.
+// ---------------------------------------------------------------------------------------------
+// #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+// ---------------------------------------------------------------------------------------------
+call qccl.qmsapi.GetAllServers('$(vService)');
+if qccl.qmsapi.GetAllServers.Result.Error = 1 then
+	// #CMT# Handle Error Message
+	// qccl.qmsapi.GetAllServers.Result.Error
+	// qccl.qmsapi.GetAllServers.Result.Error.Message
+else
+	// #CMT# Work with Result
+end if;
+// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// #CMT# Command to get all available directory DSC instances for this cluster.
+// ---------------------------------------------------------------------------------------------
+// #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+// ---------------------------------------------------------------------------------------------
+call qccl.qmsapi.GetDSCServers('$(vService)');
+if qccl.qmsapi.GetDSCServers.Result.Error = 1 then
+	// #CMT# Handle Error Message
+	// qccl.qmsapi.GetDSCServers.Result.Error
+	// qccl.qmsapi.GetDSCServers.Result.Error.Message
+else
+	// #CMT# Work with Result
+end if;
+// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// #CMT# Command to get all available QDS instances for this cluster.
+// ---------------------------------------------------------------------------------------------
+// #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+// ---------------------------------------------------------------------------------------------
+call qccl.qmsapi.GetQDSServers('$(vService)');
+if qccl.qmsapi.GetQDSServers.Result.Error = 1 then
+	// #CMT# Handle Error Message
+	// qccl.qmsapi.GetQDSServers.Result.Error
+	// qccl.qmsapi.GetQDSServers.Result.Error.Message
+else
+	// #CMT# Work with Result
+end if;
+// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// #CMT# Command to get all available QMS instances for this cluster.
+// ---------------------------------------------------------------------------------------------
+// #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+// ---------------------------------------------------------------------------------------------
+call qccl.qmsapi.GetQMSServers('$(vService)');
+if qccl.qmsapi.GetQMSServers.Result.Error = 1 then
+	// #CMT# Handle Error Message
+	// qccl.qmsapi.GetQMSServers.Result.Error
+	// qccl.qmsapi.GetQMSServers.Result.Error.Message
+else
+	// #CMT# Work with Result
+end if;
+// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// #CMT# Command to get all available QVS instances for this cluster.
+// ---------------------------------------------------------------------------------------------
+// #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+// ---------------------------------------------------------------------------------------------
+call qccl.qmsapi.GetQVSServers('$(vService)');
+if qccl.qmsapi.GetQVSServers.Result.Error = 1 then
+	// #CMT# Handle Error Message
+	// qccl.qmsapi.GetQVSServers.Result.Error
+	// qccl.qmsapi.GetQVSServers.Result.Error.Message
+else
+	// #CMT# Work with Result
+end if;
+// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// #CMT# Command to get all available QWS instances for this cluster.
+// ---------------------------------------------------------------------------------------------
+// #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+// ---------------------------------------------------------------------------------------------
+call qccl.qmsapi.GetQWSServers('$(vService)');
+if qccl.qmsapi.GetQWSServers.Result.Error = 1 then
+	// #CMT# Handle Error Message
+	// qccl.qmsapi.GetQWSServers.Result.Error
+	// qccl.qmsapi.GetQWSServers.Result.Error.Message
+else
+	// #CMT# Work with Result
+end if;
+// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// #CMT# Command to get all available RMS instances for this cluster.
+// ---------------------------------------------------------------------------------------------
+// #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+// ---------------------------------------------------------------------------------------------
+call qccl.qmsapi.GetRMSServers('$(vService)');
+if qccl.qmsapi.GetRMSServers.Result.Error = 1 then
+	// #CMT# Handle Error Message
+	// qccl.qmsapi.GetRMSServers.Result.Error
+	// qccl.qmsapi.GetRMSServers.Result.Error.Message
+else
+	// #CMT# Work with Result
+end if;
+// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// #CMT# Command to get all available categories for this cluster.
+// ---------------------------------------------------------------------------------------------
+// #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+// ---------------------------------------------------------------------------------------------
+call qccl.qmsapi.GetCategories('$(vService)');
+if qccl.qmsapi.GetCategories.Result.Error = 1 then
+	// #CMT# Handle Error Message
+	// qccl.qmsapi.GetCategories.Result.Error
+	// qccl.qmsapi.GetCategories.Result.Error.Message
+else
+	// #CMT# Work with Result
+end if;
+// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// #CMT# Command to count all currently running tasks on this cluster
+// ---------------------------------------------------------------------------------------------
+// #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+// ---------------------------------------------------------------------------------------------
+call qccl.qmsapi.CountRunningTasks('$(vService)');
+if qccl.qmsapi.CountRunningTasks.Result.Error = 1 then
+	// #CMT# Handle Error Message
+	// qccl.qmsapi.CountRunningTasks.Result.Error
+	// qccl.qmsapi.CountRunningTasks.Result.Error.Message
+else
+	// #CMT# Work with Result
+end if;
+// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// #CMT# Command to count all currently running tasks for a specific category
+// ---------------------------------------------------------------------------------------------
+// #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+// #CMT# p3 : "[category]" 		QDS category
+// ---------------------------------------------------------------------------------------------
+LET vCurCategory = '$(v.ph.category)';
+call qccl.qmsapi.CountRunningTasksByCategory('$(vService)', vCurCategory);
+if qccl.qmsapi.CountRunningTasksByCategory.Result.Error = 1 then
+	// #CMT# Handle Error Message
+	// qccl.qmsapi.CountRunningTasksByCategory.Result.Error
+	// qccl.qmsapi.CountRunningTasksByCategory.Result.Error.Message
+else
+	// #CMT# Work with Result
+end if;
+// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// #CMT# Command to get all currently running tasks on this cluster
+// ---------------------------------------------------------------------------------------------
+// #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+// ---------------------------------------------------------------------------------------------
+call qccl.qmsapi.GetRunningTasks('$(vService)');
+if qccl.qmsapi.GetRunningTasks.Result.Error = 1 then
+	// #CMT# Handle Error Message
+	// qccl.qmsapi.GetRunningTasks.Result.Error
+	// qccl.qmsapi.GetRunningTasks.Result.Error.Message
+else
+	// #CMT# Work with Result
+end if;
+// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// #CMT# Command to count all currently running tasks on a specific qds node of this cluster
+// ---------------------------------------------------------------------------------------------
+// #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+// #CMT# p3 : "[category]" 		QDS category
+// ---------------------------------------------------------------------------------------------
+LET vCurCategory = '$(v.ph.category)';
+call qccl.qmsapi.GetRunningTasksByCategory('$(vService)', vCurCategory);
+if qccl.qmsapi.GetRunningTasksByCategory.Result.Error = 1 then
+	// #CMT# Handle Error Message
+	// qccl.qmsapi.GetRunningTasksByCategory.Result.Error
+	// qccl.qmsapi.GetRunningTasksByCategory.Result.Error.Message
+else
+	// #CMT# Work with Result
+end if;
+// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// #CMT# Command to get the current status of a specific Task
+// ---------------------------------------------------------------------------------------------
+// #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+// #CMT# p3 : "[taskname]" 		name of the specific task
+// ---------------------------------------------------------------------------------------------
+LET vCurTask = '$(v.ph.taskname)';
+call qccl.qmsapi.TaskStatus('$(vService)', vCurTask);
+if qccl.qmsapi.TaskStatus.Result.Error = 1 then
+	// #CMT# Handle Error Message
+	// qccl.qmsapi.TaskStatus.Result.Error
+	// qccl.qmsapi.TaskStatus.Result.Error.Message
+else
+	// #CMT# Work with Result
+end if;
+// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// #CMT# Command to start a specific Task
+// ---------------------------------------------------------------------------------------------
+// #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+// #CMT# p3 : "[taskname]" 		name of the specific task
+// ---------------------------------------------------------------------------------------------
+LET vCurTask = '$(v.ph.taskname)';
+call qccl.qmsapi.StartTask('$(vService)', vCurTask);
+if qccl.qmsapi.StartTask.Result.Error = 1 then
+	// #CMT# Handle Error Message
+	// qccl.qmsapi.StartTask.Result.Error
+	// qccl.qmsapi.StartTask.Result.Error.Message
+else
+	// #CMT# Work with Result
+end if;
+// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// #CMT# Command to abort a specific Task
+// ---------------------------------------------------------------------------------------------
+// #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+// #CMT# p3 : "[taskname]" 		name of the specific task
+// ---------------------------------------------------------------------------------------------
+LET vCurTask = '$(v.ph.taskname)';
+call qccl.qmsapi.AbortTask('$(vService)', vCurTask);
+if qccl.qmsapi.AbortTask.Result.Error = 1 then
+	// #CMT# Handle Error Message
+	// qccl.qmsapi.AbortTask.Result.Error
+	// qccl.qmsapi.AbortTask.Result.Error.Message
+else
+	// #CMT# Work with Result
+end if;
+// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// #CMT# Command to get all mounted sourcedocuments on a specific qds node of this cluster
+// ---------------------------------------------------------------------------------------------
+// #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+// #CMT# p3 : "[qdsname]" 		name of the specific QDS engine
+// ---------------------------------------------------------------------------------------------
+LET vCurQDSEngine = '$(v.ph.qdsname)';
+call qccl.qmsapi.GetAllSourceDocumentsByQds('$(vService)', vCurQDSEngine);
+if qccl.qmsapi.GetAllSourceDocumentsByQds.Result.Error = 1 then
+	// #CMT# Handle Error Message
+	// qccl.qmsapi.GetAllSourceDocumentsByQds.Result.Error
+	// qccl.qmsapi.GetAllSourceDocumentsByQds.Result.Error.Message
+else
+	// #CMT# Work with Result
+end if;
+// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// #CMT# Command to get all tasks of this cluster
+// ---------------------------------------------------------------------------------------------
+// #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+// ---------------------------------------------------------------------------------------------
+call qccl.qmsapi.GetAllTasks('$(vService)');
+if qccl.qmsapi.GetAllTasks.Result.Error = 1 then
+	// #CMT# Handle Error Message
+	// qccl.qmsapi.GetAllTasks.Result.Error
+	// qccl.qmsapi.GetAllTasks.Result.Error.Message
+else
+	// #CMT# Work with Result
+end if;
+// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// #CMT# Command to get all tasks on a specific qds node of this cluster
+// ---------------------------------------------------------------------------------------------
+// #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+// #CMT# p3 : "[qdsname]" 		name of the specific QDS engine
+// ---------------------------------------------------------------------------------------------
+LET vCurQDSEngine = '$(v.ph.qdsname)';
+call qccl.qmsapi.GetAllTasksByQds('$(vService)', vCurQDSEngine);
+if qccl.qmsapi.GetAllTasksByQds.Result.Error = 1 then
+	// #CMT# Handle Error Message
+	// qccl.qmsapi.GetAllTasksByQds.Result.Error
+	// qccl.qmsapi.GetAllTasksByQds.Result.Error.Message
+else
+	// #CMT# Work with Result
+end if;
+// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// #CMT# Command to get a task by its id
+// ---------------------------------------------------------------------------------------------
+// #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+// #CMT# p3 : "[taskid]" 		id the of the task
+// ---------------------------------------------------------------------------------------------
+LET vCurTaskID = '$(v.ph.taskid)';
+call qccl.qmsapi.GetTaskByID('$(vService)', vCurTaskID);
+if qccl.qmsapi.GetTaskByID.Result.Error = 1 then
+	// #CMT# Handle Error Message
+	// qccl.qmsapi.GetTaskByID.Result.Error
+	// qccl.qmsapi.GetTaskByID.Result.Error.Message
+else
+	// #CMT# Work with Result
+end if;
+// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// #CMT# Command to get all triggers by taskname
+// ---------------------------------------------------------------------------------------------
+// #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+// #CMT# p3 : "[taskname]" 		name of the specific task
+// ---------------------------------------------------------------------------------------------
+LET vCurTask = '$(v.ph.taskname)';
+call qccl.qmsapi.GetTriggersByTask('$(vService)', vCurTask);
+if qccl.qmsapi.GetTriggersByTask.Result.Error = 1 then
+	// #CMT# Handle Error Message
+	// qccl.qmsapi.GetTriggersByTask.Result.Error
+	// qccl.qmsapi.GetTriggersByTask.Result.Error.Message
+else
+	// #CMT# Work with Result
+end if;
+// ---------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// #CMT# Command to send a mail to a specific receipient
+// ---------------------------------------------------------------------------------------------
+// #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+// #CMT# p3 : "[receipient]" 	receipients mail address
+// #CMT# p4 : "[subject]" 		mail subject
+// #CMT# p5 : "[body]" 			mail body
+// #CMT# p6 : "[ishtml]" 		boolean value to specify if the body is html formatted or not
+LET vCurReceipient = '$(v.ph.mailreceipient)';
+LET vCurSubject = '$(v.ph.mailsubject)';
+LET vCurBody = '$(v.ph.mailbody)';
+LET vCurIsHtml = '$(v.ph.mailishtml)';
+call qccl.qmsapi.SendMail('$(vService)', vCurReceipient, vCurSubject, vCurBody, vCurIsHtml)
+if qccl.qmsapi.SendMail.Result.Error = 1 then
+	// #CMT# Handle Error Message
+	// qccl.qmsapi.GetTriggersByTask.Result.Error
+	// qccl.qmsapi.GetTriggersByTask.Result.Error.Message
+else
+	// #CMT# Work with Result
+end if;

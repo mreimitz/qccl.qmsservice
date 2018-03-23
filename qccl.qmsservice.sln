@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qccl.qmsservice", "qccl.qmsservice\qccl.qmsservice.csproj", "{FE484D21-456F-474E-B493-2A8B196225C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qccl.toolbox", "qccl.toolbox\qccl.toolbox.csproj", "{9A26D182-52AB-4915-9211-D5F84556E90E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE484D21-456F-474E-B493-2A8B196225C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE484D21-456F-474E-B493-2A8B196225C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE484D21-456F-474E-B493-2A8B196225C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE484D21-456F-474E-B493-2A8B196225C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A26D182-52AB-4915-9211-D5F84556E90E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A26D182-52AB-4915-9211-D5F84556E90E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A26D182-52AB-4915-9211-D5F84556E90E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A26D182-52AB-4915-9211-D5F84556E90E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {83C4D730-3E8A-4FE2-99B3-AC43AF665969}
+	EndGlobalSection
+EndGlobal

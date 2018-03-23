@@ -1,0 +1,163 @@
+﻿sub qccl.qmsapi.CountRunningTasks(pWebServer)
+	call qccl.qmsapi.GenericFunction(pWebServer, 'CountRunningTasks');
+end sub;
+
+sub qccl.qmsapi.CountRunningTasksByCategory(pWebServer, category)
+	call qccl.qmsapi.GenericFunctionCategory(pWebServer, 'CountRunningTasksByCategory', category);
+end sub;
+
+sub qccl.qmsapi.GetRunningTasks(pWebServer)
+	call qccl.qmsapi.GenericFunction(pWebServer, 'GetRunningTasks');
+end sub;
+
+sub qccl.qmsapi.GetRunningTasksByCategory(pWebServer, category)
+	call qccl.qmsapi.GenericFunctionCategory(pWebServer, 'GetRunningTasksByCategory', category);
+end sub;
+
+sub qccl.qmsapi.GetCategories(pWebServer)
+	call qccl.qmsapi.GenericFunction(pWebServer, 'GetCategories');
+end sub;
+
+sub qccl.qmsapi.GetAllSourceDocumentsByQds(pWebServer, qds)
+	call qccl.qmsapi.GenericFunctionQds(pWebServer, 'GetAllSourceDocumentsByQds', qds);
+end sub;
+
+sub qccl.qmsapi.GetAllTasks(pWebServer, qds)
+	call qccl.qmsapi.GenericFunction(pWebServer, 'GetAllTasks');
+end sub;
+
+sub qccl.qmsapi.GetAllTasksByQds(pWebServer, qds)
+	call qccl.qmsapi.GenericFunctionQds(pWebServer, 'GetAllTasksByQds', qds);
+end sub;
+
+sub qccl.qmsapi.GetTaskByID(pWebServer, taskid)
+	call qccl.qmsapi.GenericFunctionTaskID(pWebServer, 'GetTaskByID', taskid);
+end sub;
+
+sub qccl.qmsapi.GetTriggersByTask(pWebServer, task)
+	call qccl.qmsapi.GenericFunctionTask(pWebServer, 'GetTriggersByTask', task);
+end sub;
+
+sub qccl.qmsapi.TaskStatus(pWebServer, task)
+	call qccl.qmsapi.GenericFunctionTask(pWebServer, 'TaskStatus', task);
+end sub;
+
+sub qccl.qmsapi.StartTask(pWebServer, task)
+	call qccl.qmsapi.GenericFunctionTask(pWebServer, 'StartTask', task);
+end sub;
+
+sub qccl.qmsapi.AbortTask(pWebServer, task)
+	call qccl.qmsapi.GenericFunctionTask(pWebServer, 'AbortTask', task);
+end sub;
+
+
+sub qccl.qmsapi.GetAllServers(pWebServer)
+	call qccl.qmsapi.GenericFunction(pWebServer, 'GetAllServers');
+end sub;
+
+sub qccl.qmsapi.GetDSCServers(pWebServer)
+	call qccl.qmsapi.GenericFunction(pWebServer, 'GetDSCServers');
+end sub;
+
+sub qccl.qmsapi.GetQDSServers(pWebServer)
+	call qccl.qmsapi.GenericFunction(pWebServer, 'GetQDSServers');
+end sub;
+
+sub qccl.qmsapi.GetQMSServers(pWebServer)
+	call qccl.qmsapi.GenericFunction(pWebServer, 'GetQMSServers');
+end sub;
+
+sub qccl.qmsapi.GetQVSServers(pWebServer)
+	call qccl.qmsapi.GenericFunction(pWebServer, 'GetQVSServers');
+end sub;
+
+sub qccl.qmsapi.GetQWSServers(pWebServer)
+	call qccl.qmsapi.GenericFunction(pWebServer, 'GetQWSServers');
+end sub;
+
+sub qccl.qmsapi.GetRMSServers(pWebServer)
+	call qccl.qmsapi.GenericFunction(pWebServer, 'GetRMSServers');
+end sub;
+
+sub qccl.qmsapi.SendMail(pWebServer, to, subject, body, ishtml)
+	call qccl.qmsapi.GenericFunctionToSubBody(pWebServer, 'SendMail', to, subject, body, ishtml);
+end sub;
+
+
+sub qccl.qmsapi.GenericFunction(pWebServer, pName)
+	$(pName):
+	LOAD string%Table as $(pName).Result
+	FROM [http://$(pWebServer)/$(pName)] 
+		(XmlSimple, Table is [ArrayOfString/string])
+	WHERE len(string%Table) > 0;
+		
+	call qccl.qmsapi.HandleResult(pName);
+end sub;
+
+sub qccl.qmsapi.GenericFunctionQds(pWebServer, pName, qds)
+	$(pName):
+	LOAD string%Table as $(pName).Result
+	FROM [http://$(pWebServer)/$(pName)?qdsnode=$(qds)] 
+		(XmlSimple, Table is [ArrayOfString/string])
+	WHERE len(string%Table) > 0;
+		
+	call qccl.qmsapi.HandleResult(pName);
+end sub;
+
+sub qccl.qmsapi.GenericFunctionTask(pWebServer, pName, task)
+	$(pName):
+	LOAD string%Table as $(pName).Result
+	FROM [http://$(pWebServer)/$(pName)?task=$(task)] 
+		(XmlSimple, Table is [ArrayOfString/string])
+	WHERE len(string%Table) > 0;
+		
+	call qccl.qmsapi.HandleResult(pName);
+end sub;
+
+sub qccl.qmsapi.GenericFunctionCategory(pWebServer, pName, category)
+	$(pName):
+	LOAD string%Table as $(pName).Result
+	FROM [http://$(pWebServer)/$(pName)?category=$(category)] 
+		(XmlSimple, Table is [ArrayOfString/string])
+	WHERE len(string%Table) > 0;
+		
+	call qccl.qmsapi.HandleResult(pName);
+end sub;
+
+sub qccl.qmsapi.GenericFunctionTaskID(pWebServer, pName, taskid)
+	$(pName):
+	LOAD string%Table as $(pName).Result
+	FROM [http://$(pWebServer)/$(pName)?taskid=$(taskid)] 
+		(XmlSimple, Table is [ArrayOfString/string])
+	WHERE len(string%Table) > 0;
+		
+	call qccl.qmsapi.HandleResult(pName);
+end sub;
+
+sub qccl.qmsapi.GenericFunctionToSubBody(pWebServer, pName, to, subject, body, ishtml)
+	$(pName):
+	LOAD string%Table as $(pName).Result
+	FROM [http://$(pWebServer)/$(pName)?to=$(to)&subject=$(subject)&body=$(body)&ishtml=$(ishtml)] 
+		(XmlSimple, Table is [ArrayOfString/string])
+	WHERE len(string%Table) > 0;
+		
+	call qccl.qmsapi.HandleResult(pName);
+end sub;
+
+
+sub qccl.qmsapi.HandleResult(pName)
+	LET vResultRows = NoOfRows('$(pName)');
+	LET vFirstRow = FieldValue('$(pName).Result', 1);
+	if left(vFirstRow, 9) = 'Exception' then
+	
+		tmpError: LOAD concat($(pName).Result, '|', rowno()) as ErrorMsg RESIDENT $(pName);
+		
+		LET qccl.qmsapi.$(pName).Result.Error = 1;
+		LET qccl.qmsapi.$(pName).Result.Error.Message = FieldValue('ErrorMsg', 1);
+		DROP TABLE tmpError;
+		DROP TABLE $(pName);
+	else
+		LET qccl.qmsapi.$(pName).Result.Error = 0;
+		LET qccl.qmsapi.$(pName).Result.Error.Message = '';
+	end if;
+end sub;
