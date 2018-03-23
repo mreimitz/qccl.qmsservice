@@ -91,7 +91,7 @@ $(Must_Include=$(vServiceURL));
 #### qccl.qmsapi.GetAllServers
 Command to get all available server instances for this cluster.
 > Parameter
-1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+>1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 ```
 call qccl.qmsapi.GetAllServers('$(vService)');
 if qccl.qmsapi.GetAllServers.Result.Error = 1 then
