@@ -1,5 +1,4 @@
 # qccl.qmsservice
-* * *
 
 ## QlikView task automation 
 The qccl.qmsservice is a REST WebService that serves as wrapper for the QlikView Server QMS API interface. In addition to the web service itself, a QlikView function library is provided to make it easier to call the service functions. 
