@@ -92,6 +92,7 @@ $(Must_Include=$(vServiceURL));
 Command to get all available server instances for this cluster.
 > Parameter
 > 1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+
 ```
 call qccl.qmsapi.GetAllServers('$(vService)');
 if qccl.qmsapi.GetAllServers.Result.Error = 1 then
@@ -107,6 +108,7 @@ end if;
 Command to get all available directory DSC instances for this cluster.
 > Parameter
 > 1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+
 ```
 call qccl.qmsapi.GetDSCServers('$(vService)');
 if qccl.qmsapi.GetDSCServers.Result.Error = 1 then
@@ -122,6 +124,7 @@ end if;
 Command to get all available QDS instances for this cluster.
 > Parameter
 > 1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+
 ```
 call qccl.qmsapi.GetQDSServers('$(vService)');
 if qccl.qmsapi.GetQDSServers.Result.Error = 1 then
@@ -137,6 +140,7 @@ end if;
 Command to get all available QMS instances for this cluster.
 > Parameter
 > 1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+
 ```
 call qccl.qmsapi.GetQMSServers('$(vService)');
 if qccl.qmsapi.GetQMSServers.Result.Error = 1 then
@@ -152,6 +156,7 @@ end if;
 Command to get all available QVS instances for this cluster.
 > Parameter
 > 1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+
 ```
 call qccl.qmsapi.GetQVSServers('$(vService)');
 if qccl.qmsapi.GetQVSServers.Result.Error = 1 then
@@ -167,6 +172,7 @@ end if;
 Command to get all available QWS instances for this cluster.
 > Parameter
 > 1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+
 ```
 call qccl.qmsapi.GetQWSServers('$(vService)');
 if qccl.qmsapi.GetQWSServers.Result.Error = 1 then
@@ -182,6 +188,7 @@ end if;
 Command to get all available RMS instances for this cluster.
 > Parameter
 > 1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+
 ```
 call qccl.qmsapi.GetRMSServers('$(vService)');
 if qccl.qmsapi.GetRMSServers.Result.Error = 1 then
@@ -197,6 +204,7 @@ end if;
 Command to get all available categories for this cluster.
 > Parameter
 > 1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+
 ```
 call qccl.qmsapi.GetCategories('$(vService)');
 if qccl.qmsapi.GetCategories.Result.Error = 1 then
@@ -212,6 +220,7 @@ end if;
 Command to count all currently running tasks on this cluster
 > Parameter
 > 1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+
 ```
 call qccl.qmsapi.CountRunningTasks('$(vService)');
 if qccl.qmsapi.CountRunningTasks.Result.Error = 1 then
@@ -228,6 +237,7 @@ Command to count all currently running tasks for a specific category
 > Parameter
 > 1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 > 2. p2 : "[category]" 		QDS category
+
 ```
 LET vCurCategory = '$(v.ph.category)';
 call qccl.qmsapi.CountRunningTasksByCategory('$(vService)', vCurCategory);
@@ -244,6 +254,7 @@ end if;
 Command to get all currently running tasks on this cluster
 > Parameter
 > 1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+
 ```
 call qccl.qmsapi.GetRunningTasks('$(vService)');
 if qccl.qmsapi.GetRunningTasks.Result.Error = 1 then
@@ -260,6 +271,7 @@ Command to count all currently running tasks on a specific qds node of this clus
 > Parameter
 > 1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 > 2. p2 : "[category]" 		QDS category
+
 ```
 LET vCurCategory = '$(v.ph.category)';
 call qccl.qmsapi.GetRunningTasksByCategory('$(vService)', vCurCategory);
@@ -277,6 +289,7 @@ Command to get the current status of a specific Task
 > Parameter
 > 1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 > 2. p2 : "[taskname]" 		name of the specific task
+
 ```
 LET vCurTask = '$(v.ph.taskname)';
 call qccl.qmsapi.TaskStatus('$(vService)', vCurTask);
@@ -294,6 +307,7 @@ Command to start a specific Task
 > Parameter
 > 1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 > 2. p2 : "[taskname]" 		name of the specific task
+
 ```
 LET vCurTask = '$(v.ph.taskname)';
 call qccl.qmsapi.StartTask('$(vService)', vCurTask);
@@ -311,6 +325,7 @@ Command to abort a specific Task
 > Parameter
 > 1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 > 2. p2 : "[taskname]" 		name of the specific task
+
 ```
 LET vCurTask = '$(v.ph.taskname)';
 call qccl.qmsapi.AbortTask('$(vService)', vCurTask);
@@ -328,6 +343,7 @@ Command to get all mounted sourcedocuments on a specific qds node of this cluste
 > Parameter
 > 1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 > 2. p2 : "[qdsname]" 		name of the specific QDS engine
+
 ```
 LET vCurQDSEngine = '$(v.ph.qdsname)';
 call qccl.qmsapi.GetAllSourceDocumentsByQds('$(vService)', vCurQDSEngine);
@@ -344,6 +360,7 @@ end if;
 Command to get all tasks of this cluster
 > Parameter
 > 1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
+
 ```
 call qccl.qmsapi.GetAllTasks('$(vService)');
 if qccl.qmsapi.GetAllTasks.Result.Error = 1 then
@@ -360,6 +377,7 @@ Command to get all tasks on a specific qds node of this cluster
 > Parameter
 > 1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 > 2. p2 : "[qdsname]" 		name of the specific QDS engine
+
 ```
 LET vCurQDSEngine = '$(v.ph.qdsname)';
 call qccl.qmsapi.GetAllTasksByQds('$(vService)', vCurQDSEngine);
@@ -377,6 +395,7 @@ Command to get a task by its id
 > Parameter
 > 1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 > 2. p2 : "[taskid]" 		id the of the task
+
 ```
 LET vCurTaskID = '$(v.ph.taskid)';
 call qccl.qmsapi.GetTaskByID('$(vService)', vCurTaskID);
@@ -394,6 +413,7 @@ Command to get all triggers by taskname
 > Parameter
 > 1. p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 > 2. p2 : "[taskname]" 		name of the specific task
+
 ```
 LET vCurTask = '$(v.ph.taskname)';
 call qccl.qmsapi.GetTriggersByTask('$(vService)', vCurTask);
@@ -414,6 +434,7 @@ Command to send a mail to a specific receipient
 > 3. p3 : "[subject]" 		mail subject
 > 4. p4 : "[body]" 			mail body
 > 5. p5 : "[ishtml]" 		boolean value to specify if the body is html formatted or not
+
 ```
 LET vCurReceipient = '$(v.ph.mailreceipient)';
 LET vCurSubject = '$(v.ph.mailsubject)';
