@@ -38,5 +38,37 @@ All functions are located in the namespace "qccl.qmsapi" and can be called direc
 
 ### Setup
 Setup the compiled WebService as a new Web Application on your IIS.
+Adjust the Web.Config File in order to reach your QMS Service:
+
+QMS Binding:
+```
+<client>
+      <endpoint address="http://localhost:4799/QMS/Service" binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IQMS" contract="IQMSAPI.IQMS" name="BasicHttpBinding_IQMS" behaviorConfiguration="ServiceKeyEndpointBehavior" />
+      <endpoint address="http://localhost:4799/ANY/Service" binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IQTService" contract="IQMSAPI.IQTService" name="BasicHttpBinding_IQTService" behaviorConfiguration="ServiceKeyEndpointBehavior" />
+</client>
+```
+
+Application Settings:
+```
+<applicationSettings>
+    <qccl.qmsservice.Properties.Settings>
+      <setting name="Password" serializeAs="String">
+        <value>test</value>
+      </setting>
+      <setting name="SmtpHost" serializeAs="String">
+        <value>groupsmtprelay.company.com</value>
+      </setting>
+      <setting name="SmtpPort" serializeAs="String">
+        <value>25</value>
+      </setting>
+      <setting name="SmtpSender" serializeAs="String">
+        <value>mail@service.com</value>
+      </setting>
+      <setting name="SmtpUseSSL" serializeAs="String">
+        <value>False</value>
+      </setting>
+    </qccl.qmsservice.Properties.Settings>
+  </applicationSettings>
+```
 
 
