@@ -6,6 +6,9 @@ For example, a task can be started or stopped from a normal QlikView script.
 
 The aim of the project is to keep the operation of a QlikView environment as autonomous as possible. QlikView can monitor the data of the source systems independently and start loading processes when needed without being dependent on triggers from the source systems.
 
+Inspired by [Rikard Braathen's](https://github.com/braathen) [qv-edx-trigger](https://github.com/braathen/qv-edx-trigger), a REST based advanced tool has been developed.
+
+
 ### functional scope 
 All functions are located in the namespace "qccl.qmsapi" and can be called directly in a QlikView script with the listed parameters. The result is always a table with a column containing the return value.
 
