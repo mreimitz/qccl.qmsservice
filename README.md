@@ -13,7 +13,7 @@ Inspired by [Rikard Braathen's](https://github.com/braathen) [qv-edx-trigger](ht
 All functions are located in the namespace "qccl.qmsapi" and can be called directly in a QlikView script with the listed parameters. The result is always a table with a column containing the return value.
 
 | Function | Description |
-|--------|--------|
+|:--------|:--------|
 |**GetAllServers**|get all available server instances for this cluster.  |
 |**GetDSCServers**|get all available directory DSC instances for this cluster.|
 |**GetQDSServers**|get all available QDS instances for this cluster.|
