@@ -88,7 +88,7 @@ LET vServiceURL = 'http://$(vService)/qvs/qccl.qmsapi.qvs';
 $(Must_Include=$(vServiceURL));
 ```
 
-####qccl.qmsapi.GetAllServers
+#### qccl.qmsapi.GetAllServers
 Command to get all available server instances for this cluster.
 p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 ```
@@ -102,7 +102,7 @@ else
 end if;
 ```
 
-####qccl.qmsapi.GetDSCServers
+#### qccl.qmsapi.GetDSCServers
 Command to get all available directory DSC instances for this cluster.
 p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 ```
@@ -116,7 +116,7 @@ else
 end if;
 ```
 
-####qccl.qmsapi.GetQDSServers
+#### qccl.qmsapi.GetQDSServers
 Command to get all available QDS instances for this cluster.
 p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 ```
@@ -130,7 +130,7 @@ else
 end if;
 ```
 
-####qccl.qmsapi.GetQMSServers
+#### qccl.qmsapi.GetQMSServers
 // #CMT# Command to get all available QMS instances for this cluster.
 // ---------------------------------------------------------------------------------------------
 // #CMT# p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
@@ -146,7 +146,7 @@ else
 end if;
 ```
 
-####qccl.qmsapi.GetQVSServers
+#### qccl.qmsapi.GetQVSServers
 Command to get all available QVS instances for this cluster.
 p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 ```
@@ -160,7 +160,7 @@ else
 end if;
 ```
 
-####qccl.qmsapi.GetQWSServers
+#### qccl.qmsapi.GetQWSServers
 Command to get all available QWS instances for this cluster.
 p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 ```
@@ -174,7 +174,7 @@ else
 end if;
 ```
 
-####qccl.qmsapi.GetRMSServers
+#### qccl.qmsapi.GetRMSServers
 Command to get all available RMS instances for this cluster.
 p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 ```
@@ -188,7 +188,7 @@ else
 end if;
 ```
 
-####qccl.qmsapi.GetCategories
+#### qccl.qmsapi.GetCategories
 Command to get all available categories for this cluster.
 p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 ```
@@ -202,7 +202,7 @@ else
 end if;
 ```
 
-####qccl.qmsapi.CountRunningTasks
+#### qccl.qmsapi.CountRunningTasks
 Command to count all currently running tasks on this cluster
 p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 ```
@@ -216,7 +216,7 @@ else
 end if;
 ```
 
-####qccl.qmsapi.CountRunningTasksByCategory
+#### qccl.qmsapi.CountRunningTasksByCategory
 Command to count all currently running tasks for a specific category
 p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 p2 : "[category]" 		QDS category
@@ -232,7 +232,7 @@ else
 end if;
 ```
 
-####qccl.qmsapi.GetRunningTasks
+#### qccl.qmsapi.GetRunningTasks
 Command to get all currently running tasks on this cluster
 p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 ```
@@ -246,7 +246,7 @@ else
 end if;
 ```
 
-####qccl.qmsapi.GetRunningTasksByCategory
+#### qccl.qmsapi.GetRunningTasksByCategory
 Command to count all currently running tasks on a specific qds node of this cluster
 p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 p2 : "[category]" 		QDS category
@@ -262,7 +262,7 @@ else
 end if;
 ```
 
-####qccl.qmsapi.TaskStatus
+#### qccl.qmsapi.TaskStatus
 Command to get the current status of a specific Task
 p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 p2 : "[taskname]" 		name of the specific task
@@ -278,7 +278,7 @@ else
 end if;
 ```
 
-####qccl.qmsapi.StartTask
+#### qccl.qmsapi.StartTask
 Command to start a specific Task
 p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 p2 : "[taskname]" 		name of the specific task
@@ -294,7 +294,7 @@ else
 end if;
 ```
 
-####qccl.qmsapi.AbortTask
+#### qccl.qmsapi.AbortTask
 Command to abort a specific Task
 p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 p2 : "[taskname]" 		name of the specific task
@@ -310,7 +310,7 @@ else
 end if;
 ```
 
-####qccl.qmsapi.GetAllSourceDocumentsByQds
+#### qccl.qmsapi.GetAllSourceDocumentsByQds
 Command to get all mounted sourcedocuments on a specific qds node of this cluster
 p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 p2 : "[qdsname]" 		name of the specific QDS engine
@@ -326,7 +326,7 @@ else
 end if;
 ```
 
-####qccl.qmsapi.GetAllTasks
+#### qccl.qmsapi.GetAllTasks
 Command to get all tasks of this cluster
 p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 ```
@@ -340,7 +340,7 @@ else
 end if;
 ```
 
-####qccl.qmsapi.GetAllTasksByQds
+#### qccl.qmsapi.GetAllTasksByQds
 Command to get all tasks on a specific qds node of this cluster
 p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 p2 : "[qdsname]" 		name of the specific QDS engine
@@ -356,7 +356,7 @@ else
 end if;
 ```
 
-####qccl.qmsapi.GetTaskByID
+#### qccl.qmsapi.GetTaskByID
 Command to get a task by its id
 p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 p2 : "[taskid]" 		id the of the task
@@ -372,7 +372,7 @@ else
 end if;
 ```
 
-####qccl.qmsapi.GetTriggersByTask
+#### qccl.qmsapi.GetTriggersByTask
 Command to get all triggers by taskname
 p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 p2 : "[taskname]" 		name of the specific task
@@ -388,7 +388,7 @@ else
 end if;
 ```
 
-####qccl.qmsapi.SendMail
+#### qccl.qmsapi.SendMail
 Command to send a mail to a specific receipient
 p1 : "[server]:[port]"	servername and port of the current qccl.qmsservice
 p2 : "[receipient]" 	receipients mail address
