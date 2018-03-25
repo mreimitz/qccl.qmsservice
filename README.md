@@ -8,6 +8,10 @@ The aim of the project is to keep the operation of a QlikView environment as aut
 
 Inspired by [Rikard Braathen's](https://github.com/braathen) [qv-edx-trigger](https://github.com/braathen/qv-edx-trigger), a REST based advanced tool has been developed.
 
+## Releases
+| Version | Comment | Link |
+|:--------|:--------|------|
+|v.1.0|initial version|[download](https://github.com/mreimitz/qccl.qmsservice/releases/download/1/qccl.qmssevice.v1.zip)|
 
 ### functional scope 
 All functions are located in the namespace "qccl.qmsapi" and can be called directly in a QlikView script with the listed parameters. The result is always a table with a column containing the return value.
